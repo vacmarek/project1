@@ -1,21 +1,39 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="sk" xmlns:border="http://www.w3.org/1999/xhtml" xmlns:overflow="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        div{
+        header.center {
+            text-align: center;
+            color: red;
+            overflow: hidden;
+        }
+        div.black{
             width: 100px;
             height: 100px;
             background-color: black;
         }
+        p.left{
+            float: left;
+        }
+        p.right{
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
-<img src="logo.png" width="200" height="200"><p>ahoj</p>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias blanditiis commodi consequuntur cum deserunt ducimus exercitationem facilis ipsam iusto minus mollitia nemo obcaecati possimus, provident quibusdam tempora tenetur, veniam
-<div></div>
-<a href="https://www.w3schools.com">Visit W3Schools</a>
+<div>
+    <header class="center" >
+        <img class="left" src="logo.png" width="200" height="200" alt="LOGO" >
+        <p class="left">ahoj</p>
+        <p class="right">necum</p>
+        <div class="black"></div>
+        <a href="https://www.w3schools.com">Visit W3Schools</a>
+    </header>
+
+</div>
+
 
 <form action="/action_page.php" target="_blank">
     <hr style="width:50%;text-align:left;margin-left:0">
