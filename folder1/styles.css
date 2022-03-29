@@ -1,0 +1,84 @@
+/*left floating*/
+img.left{
+    position: static;
+    float: left;
+}
+/*opaque header stuck to top od page*/
+div.header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 200px;
+    width: 100% ;
+    background-color: white;
+}
+/*opaque navigation bar stuck to header od page*/
+div.navigation{
+    position: sticky;
+    top: 200px;
+    left: 0;
+    min-height: 50px;
+    width: 100% ;
+    border-bottom: 3px solid rgb(195, 40, 29);
+    border-top: 3px solid rgb(195, 40, 29);
+    background-color: white;
+}
+/*center align*/
+h1.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: rgb(195, 40, 29);
+}
+h2{
+    position: static;
+    margin-left: 50%;
+    color: rgb(195, 40, 29);
+}
+.page-button{
+    color: darkred;
+    margin-left: 30px;
+    margin-top: 10px;
+    display:inline-block;
+}
+span.page-button-text{
+    font-size: 25px;
+}
+input.input-field-left-margin{
+    margin-left: 20px;
+}
+select.select-field-left-margin{
+    margin-left: 20px;
+    width: 180px;
+    height: 20px;
+}
+/*form format, divided into columns*/
+div.form{
+    column-count: auto;
+    column-gap: 40px;
+    column-width: 500px;
+    column-rule-style: solid;
+    column-rule-width: 2px;
+    column-rule-color: rgb(195, 40, 29);
+}
+/*label of form*/
+label{
+    min-width: 200px;
+    display:inline-block;
+}
+/*table format*/
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(162, 2, 2, 0.23);
+}

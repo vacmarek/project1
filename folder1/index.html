@@ -1,58 +1,140 @@
 <!DOCTYPE html>
-<html lang="sk" xmlns:border="http://www.w3.org/1999/xhtml" xmlns:overflow="http://www.w3.org/1999/xhtml">
+<html lang="cz" >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        header.center {
-            text-align: center;
-            color: red;
-            overflow: hidden;
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script>
+
+
+        function loadTableData(){
+            const tableData=document.getElementById('tableData');
+            fetch('table.txt')
+                .then(response => response.text())
+                .then(data => {
+                    // Do something with your data
+                    tableData.innerHTML=data;
+                    console.log(data);
+                });
         }
-        div.black{
-            width: 100px;
-            height: 100px;
-            background-color: black;
+
+        window.onload = () => {
+            loadTableData();
         }
-        p.left{
-            float: left;
-        }
-        p.right{
-            overflow: hidden;
-        }
-    </style>
+    </script>
 </head>
 <body>
-<div>
-    <header class="center" >
-        <img class="left" src="logo.png" width="200" height="200" alt="LOGO" >
-        <p class="left">ahoj</p>
-        <p class="right">necum</p>
-        <div class="black"></div>
-        <a href="https://www.w3schools.com">Visit W3Schools</a>
-    </header>
+<!--Vrchni hlavicka/zapati stranky.-->
+    <div class="header">
+        <a href="https://www.generaliceska.cz">
+            <img class="left" src="logo.png" width="200" height="200" alt="LOGO" >
+        </a>
+        <h1 class="center">Podatelna</h1>
+    </div>
+<!--Navigacni panel. obsahuje odkazy na dalsi stranky-->
+    <div class="navigation">
+        <nav>
+            <a class="page-button" href="https://www.generaliceska.cz">
+                <i class="material-icons">task</i>
+                <span class="page-button-text">Přidat další zásilku</span>
+            </a>
+            <a class="page-button" href="https://www.generaliceska.cz">
+                <i class="material-icons">exit_to_app</i>
+                <span class="page-button-text" >Přidat odeslanou zásilku</span>
+            </a>
+            <a class="page-button" href="https://www.generaliceska.cz">
+                <i class="material-icons">search</i>
+                <span class="page-button-text">Vyhledat zásilku</span>
+            </a>
+            <a class="page-button" href="https://www.generaliceska.cz">
+                <i class="material-icons">print</i>
+                <span class="page-button-text">Tisk</span>
+            </a>
+            <a class="page-button" href="https://www.generaliceska.cz">
+                <i class="material-icons">format_list_bulleted</i>
+                <span class="page-button-text">Statistika cen</span>
+            </a>
+            <a class="page-button" href="https://www.generaliceska.cz" >
+                <i class="material-icons">admin_panel_settings</i>
+                <span class="page-button-text">Admin</span>
+            </a>
+        </nav>
+    </div>
+<!--Telo stranky-->
+    <div class="body">
+        <br>
+        <h2>Vyhledávání zásilky</h2>
+        <hr>
+<!--        Formular pro vyhledavani zasilky.-->
+        <form>
+            <div class="form">
+                <label for="Number">Číslo:</label><input class="input-field-left-margin" type="number" id="Number" name="Number"><br><br>
+                <label for="Type">Typ:</label>
+                    <select class="select-field-left-margin"  id="Type" name="Type">
+                        <option value="All">Všechny</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                    </select>
+                <br><br>
+                <label for="Type_Received">Typ příchozí:</label>
+                    <select class="select-field-left-margin"  id="Type_Received" name="Type_Received">
+                        <option value="All">Všechny</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                    </select>
+                <br><br>
+                <label for="Team">Tým:</label>
+                    <select class="select-field-left-margin"  id="Team" name="Team">
+                        <option value="All">Všechny</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                    </select>
+                <br><br>
+                <label for="Name_Company">Jméno/Název firmy:</label><input class="input-field-left-margin" type="text" id="Name_Company" name="Name_Company"><br><br>
+                <label for="Last_Name">Příjmení:</label><input class="input-field-left-margin" type="text" id="Last_Name" name="Last_Name"><br><br>
+                <label for="Address">Ulice, č.domu:</label><input class="input-field-left-margin" type="text" id="Address" name="Address"><br><br>
+                <label for="City">Město:</label><input class="input-field-left-margin" type="text" id="City" name="City"><br><br>
+                <label for="postcode">PSČ:</label><input class="input-field-left-margin" type="number" id="postcode" name="postcode"><br><br>
+                <label for="State">Stát:</label><input class="input-field-left-margin" type="text" id="State" name="State"><br><br>
+                <label for="Date_From">Datum od:</label><input class="input-field-left-margin" type="date" id="Date_From" name="Date_From"><br><br>
+                <label for="Date_To">Datum do:</label><input class="input-field-left-margin" type="date" id="Date_To" name="Date_To"><br><br>
+                <label for="Keywords">klíčová slova:</label><input class="input-field-left-margin" type="text" id="Keywords" name="Keywords"><br><br>
+                <label for="Max_Results">Max počet výsledků:</label><input class="input-field-left-margin" type="number" id="Max_Results" name="Max_Results"><br><br>
+                <input type="submit" value="Hledat">
+                <hr>
+            </div>
+        </form>
 
-</div>
+        <hr>
+<!--        Tabulka zasilek.-->
+        <table>
+            <thead>
+            <tr>
+                <th>Číslo</th>
+                <th>Datum</th>
+                <th>Tým</th>
+                <th>Středisko</th>
+                <th>Jméno</th>
+                <th>Příjmení</th>
+                <th>Ulice</th>
+                <th>Město</th>
+                <th>PSČ</th>
+                <th>Počet stran</th>
+                <th>Cena</th>
+                <th>Typ odeslané</th>
+                <th>Typ přijaté</th>
+                <th>Značka odesílatele</th>
+                <th>Předmět</th>
+            </tr>
+            </thead>
+            <tbody id="tableData">
+
+            </tbody>
+        </table>
+    </div>
 
 
-<form action="/action_page.php" target="_blank">
-    <hr style="width:50%;text-align:left;margin-left:0">
-    <label for="fname">First name:</label><input type="text" id="fname" name="fname"><br>
-    <br>
 
-
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname"><br><br>
-    <input type="submit" value="Submit">
-</form>
-<br>
-<form>
-    <input type="radio" id="html" name="fav_language" value="HTML">
-    <label for="html">HTML</label><br>
-    <input type="radio" id="css" name="fav_language" value="CSS">
-    <label for="css">CSS</label><br>
-    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-    <label for="javascript">JavaScript</label>
-</form>
 </body>
 </html>
